@@ -15,7 +15,7 @@ async function mailSender(email, token) {
     });
     let dataObj = {
         from: '"Cult fit clone 👻" <foo@example.com>', // sender address
-        to: email, // list of receivers
+        to: "abhay1627.cse19@chitkara.edu.in", // list of receivers
         subject: "Hello ✔ Your reset token ", // Subject line
         html: `<b>Your rest is  token ${token}?</b>`,
     }
@@ -23,8 +23,8 @@ async function mailSender(email, token) {
     let info = await transporter.sendMail(dataObj);
 }
 // mailSender(email, token)
-//     .then(function () {
-//         console.log("mail send successfully")
-//     })
-// .catch (console.error);
+//      .then(function () {
+//          console.log("mail send successfully")
+//      })
+//  .catch (console.error);
 module.exports = mailSender;
