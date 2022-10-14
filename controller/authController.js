@@ -27,7 +27,7 @@ async function loginController(req, res) {
         let { email, password } = data;
         if (email && password) {
             let user = await FooduserModel.findOne({ email: email });
-            if (user) {
+            if (user) {        
                 if (user.password == password) {
                     // create JWT ->-> payload, secret text 
                     const token = jwt.sign({
