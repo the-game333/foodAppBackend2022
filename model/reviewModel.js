@@ -18,13 +18,13 @@ const reviewSchema = new mongoose.Schema({
         // info
         type: mongoose.Schema.ObjectId, // _id
         required: [true, "Review must belong to a user"],
-        ref:"FooduserModel"     
+        ref:"foodusermodels"     
     },
     plan: {
         // info
         type: mongoose.Schema.ObjectId, //_id
         required: [true, "Review must belong to a plan "],
-        ref:"FoodplanModel"
+        ref:"foodplanmodels"
     }
 })
 const ReviewModel = mongoose.model("FoodreviewModel",
