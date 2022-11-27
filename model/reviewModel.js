@@ -1,4 +1,15 @@
 const mongoose = require("mongoose");
+let DB_LINK = process.env.DB_LINK || require("../secrets").DB_LINK;
+
+// db  server connect -> mongodbAtlas connect 
+mongoose
+    .connect(DB_LINK)
+    .then(function () {
+        console.log("connected");
+    })
+    .catch(function (err) {
+        console.log("error", err);
+    })
 const reviewSchema = new mongoose.Schema({
     description: {
         type: String,
