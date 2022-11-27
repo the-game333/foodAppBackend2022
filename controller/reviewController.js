@@ -2,11 +2,11 @@ const reviewModel = require("../model/reviewModel");
 const planModel = require("../model/planModel");
 async function createReviewController(req, res) {
     try {
-        let reviewData = req.body;
-        let review = await reviewModel.create(reviewData);
-        let rating = review.rating;
-        let reviewId = review["_id"];
-        let currentPlan = await planModel.findById(review.plan);
+        let review = req.body;
+        let reviewData = await reviewModel.create(review);
+        let rating = reviewData.rating;
+        let reviewId = reviewData["_id"];
+        let currentPlan = await planModel.findById(reviewData.plan);
         // average rating 
         let totalNoofRating = currentPlan.reviews.length;
         let prevAvg = currentPlan.averageRating;
