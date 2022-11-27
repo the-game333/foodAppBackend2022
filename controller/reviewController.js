@@ -2,7 +2,8 @@ const reviewModel = require("../model/reviewModel");
 const planModel = require("../model/planModel");
 async function createReviewController(req, res) {
     try {
-        let review = req.body;
+        let review = req.body.review;
+        console.log("hello");
         let reviewData = await reviewModel.create(review);
         let rating = reviewData.rating;
         let reviewId = reviewData["_id"];
