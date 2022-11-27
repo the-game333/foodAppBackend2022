@@ -4,9 +4,9 @@ const { createReviewController, getAllReviewController
 } =
     require('../controller/reviewController');
 // plans -> get all the plans from db -> sensitive route -> protected route -> logged in i will only allow that person 
-reviewRoutes.post(createReviewController);
-    //.route("/")
-    //.get(getAllReviewController)
+reviewRoutes.route("/")
+    .post(createReviewController) 
+    .get(getAllReviewController)
     
 // loggedin plan
 module.exports = reviewRoutes;
