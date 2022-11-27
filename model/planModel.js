@@ -26,7 +26,7 @@ let planSchema = new mongoose.Schema({
     }
     , reviews: {
         type: [mongoose.Schema.ObjectId],
-        ref: "foodreviewmodels"
+        ref: "FoodreviewModel"
     },
     averageRating: {
         type:Number
