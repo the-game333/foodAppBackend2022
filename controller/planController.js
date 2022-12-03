@@ -102,7 +102,7 @@ async function deletePlanController(req, res) {
 }
 async function getbestPlans(req, res) {
     try {
-        let plans = await FoodplanModel.find().sort("-averageRating").limit(3);
+        let plans = await FoodplanModel.find().sort("-ratingsAverage").limit(3);
         // plans = plans.slice(0, 3);
         res.status(200).json({
             plans
