@@ -3,7 +3,8 @@ const reviewRoutes = express.Router();
 const { createReviewController, getAllReviewController
 } =
     require('../controller/reviewController');
-// plans -> get all the plans from db -> sensitive route -> protected route -> logged in i will only allow that person 
+// plans -> get all the plans from db -> sensitive route -> protected route -> logged in i will only allow that person
+reviewRoutes.get("/best3",getTop3Reviews); 
 reviewRoutes.route("/")
     .post(createReviewController) 
     .get(getAllReviewController)

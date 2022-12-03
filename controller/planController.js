@@ -39,7 +39,7 @@ async function getPlanController(req, res) {
     try {
         let id = req.params.planRoutes;
         let plan = await FoodplanModel.findById(id)
-            .populate("reviews");;
+            .populate("reviews");
         res.status(200).json({
             result: "plan found",
             plan: plan
@@ -55,7 +55,6 @@ async function getPlanController(req, res) {
 }
 async function updatePlanController(req, res) {
     try {
-        console.log("to update", req.body);
         let planUpdateObjData = req.body;
         let id = req.params.planRoutes;
         console.log(id);
@@ -102,16 +101,9 @@ async function deletePlanController(req, res) {
     }
 }
 async function getbestPlans(req, res) {
-    console.log("hello")
     try {
-        // let plans = await PlanModel.find()
-        //     .sort("-averageRating").populate({
-        //         path: 'FoodreviewModel',
-        //         select: "FoodreviewModel"
-        //     })
-     let plans=   await PlanModel.find();
-        plans = plans.slice(0, 3);
-        // console.log(plans);
+        let plans = await FoodplanModel.find().sort("-averageRating").limit(3);
+        // plans = plans.slice(0, 3);
         res.status(200).json({
             plans
         })
@@ -131,4 +123,3 @@ module.exports = {
     getPlanController,
     getbestPlans
 }
-
