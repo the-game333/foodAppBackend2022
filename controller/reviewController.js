@@ -9,14 +9,14 @@ async function createReviewController(req, res) {
         let currentPlan = await planModel.findById(review.plan);
         // average rating 
         let totalNoofRating = currentPlan.reviews.length;
-        let prevAvg = currentPlan.averageRating;
+        let prevAvg = currentPlan.ratingsAverage;
         if (prevAvg) {
             let totalRatings = prevAvg * totalNoofRating;
             let newAvg = (totalRatings + rating) /
                 (totalNoofRating + 1);
-            currentPlan.averageRating = newAvg;
+            currentPlan.ratingsAverage = newAvg;
         } else {
-            currentPlan.averageRating = rating;
+            currentPlan.ratingsAverage = rating;
         }
         currentPlan.reviews.push(reviewId);
         await currentPlan.save();
